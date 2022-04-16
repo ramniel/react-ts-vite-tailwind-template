@@ -71,3 +71,6 @@ When you use TypeScript with React, you can write JSX with TypeScript, called TS
   content: ['./index.html', './src/**/*.{tsx,ts}'],
   ...
   ```
+  </br>
+- Add support for TypeScript's path mapping in Vite
+  Run `yarn add --dev vite-tsconfig-paths`
