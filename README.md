@@ -12,6 +12,7 @@ This starter uses following libraries:
 - React
 - TypeScript
 - TailwindCSS
+  - daisyUI
 
 ## Set up
 
@@ -23,31 +24,37 @@ yarn dev
 
 ## Vite
 
-[Vite](https://github.com/vitejs/vite) is a fast frontend build tool.
+[Vite](https://vitejs.dev) is a fast frontend build tool.
 
 ## React
 
-[React](https://github.com/facebook/react) is a JavaScript library for building user interfaces.
+[React](https://es.reactjs.org) is a JavaScript library for building user interfaces.
 
 ## TypeScript
 
-[TypeScript](https://github.com/microsoft/TypeScript) is a superset of JavaScript. It is just one of NPM library, but it provides an original compiler.
+[TypeScript](https://www.typescriptlang.org) is a superset of JavaScript. It is just one of NPM library, but it provides an original compiler.
 
 When you use TypeScript with React, you can write JSX with TypeScript, called TSX. Then you can develop views written by **Type-Safe** template.
 
 ## Tailwind CSS
 
-[Tailwind CSS](https://tailwindcss.com/) is modern utility-first CSS framework. It provides many CSS rules, but these are purged when production builds. So developers do not worry about CSS asset size for performance optimization.
+[Tailwind CSS](https://tailwindcss.com) is modern utility-first CSS framework. It provides many CSS rules, but these are purged when production builds. So developers do not worry about CSS asset size for performance optimization.
+
+### daisyUI
+
+[daisyUI](https://daisyui.com/) is Tailwind CSS Components library.
+
+If you don't want to use it, just remove the package and remove config in `tailwind.config.js`.
 
 ## How was it builded?
 
-- Create Vite app for React with TypeScript
+- Create **Vite** app for **React** with **TypeScript**
   Run `yarn create vite react-ts-vite-tailwindcss-template --template react-ts`
   </br>
-- Add TailwindCSS
+- Add **TailwindCSS**
   Run `yarn add --dev tailwindcss postcss autoprefixer`
   </br>
-- Configure it TailwindCSS
+- Configure **TailwindCSS**
   Run `npx tailwindcss init`
   </br>
 - Add next to a `postcss.config.js` file:
@@ -66,11 +73,29 @@ When you use TypeScript with React, you can write JSX with TypeScript, called TS
 
 - Update `content` in `tailwind.config.js`:
   </br>
+
   ```js
-  ...
-  content: ['./index.html', './src/**/*.{tsx,ts}'],
-  ...
+  module.exports = {
+  	//...
+  	content: ['./index.html', './src/**/*.{tsx,ts}']
+  	//...
+  }
   ```
+
   </br>
+
+- Add **daisyUI**
+  Run `yarn add daisyui`
+  </br>
+  Then add `daisyUI` to `tailwind.config.js` file:
+  </br>
+
+  ```js
+  module.exports = {
+  	//...
+  	plugins: [require('daisyui')]
+  }
+  ```
+
 - Add support for TypeScript's path mapping in Vite
   Run `yarn add --dev vite-tsconfig-paths`
