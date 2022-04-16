@@ -99,3 +99,47 @@ If you don't want to use it, just remove the package and remove config in `tailw
 
 - Add support for TypeScript's path mapping in Vite
   Run `yarn add --dev vite-tsconfig-paths`
+
+- Add ESLint
+yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+npx eslint --init
+
+✔ How would you like to use ESLint? · style
+✔ What type of modules does your project use? · esm
+✔ Which framework does your project use? · react
+✔ Does your project use TypeScript? · No / Yes · Yes
+✔ Where does your code run? · browser
+✔ How would you like to define a style for your project? · guide
+✔ Which style guide do you want to follow? · standard
+✔ What format do you want your config file to be in? · JavaScript
+✔ Do you want to downgrade? · No / Yes · No
+✔ Would you like to install them now with npm? · No / Yes · No
+
+yarn add --dev eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react
+
+rules
+'react/jsx-curly-brace-presence': 'error',
+    'react/react-in-jsx-scope': 'off',
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: true,
+      },
+    ],
+    'react/jsx-boolean-value': 'error',
+    'prefer-template': 'error',
+    'jsx-quotes': ['error', 'prefer-double'],
+    'react/jsx-tag-spacing': 'error',
+
+    .eslintignore
+    node_modules
+    dist    
+
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx ."
+
+    yarn lint --fix
+
+VSCode extension
+    https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+    https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
