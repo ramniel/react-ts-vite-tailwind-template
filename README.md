@@ -13,6 +13,8 @@ This starter uses following libraries:
 - TypeScript
 - TailwindCSS
   - daisyUI
+- ESLint
+- Prettier
 
 ## Set up
 
@@ -46,6 +48,10 @@ When you use TypeScript with React, you can write JSX with TypeScript, called TS
 
 If you don't want to use it, just remove the package and remove config in `tailwind.config.js`.
 
+## Formatter and Linter
+
+Already set up [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/). You can customize the rules.
+
 ## How was it builded?
 
 - Create **Vite** app for **React** with **TypeScript**
@@ -57,16 +63,16 @@ If you don't want to use it, just remove the package and remove config in `tailw
 - Configure **TailwindCSS**
   Run `npx tailwindcss init`
   </br>
-- Add next to a `postcss.config.js` file:
+- Add the following in `postcss.config.js` file:
   </br>
 
   ```js
   module.exports = {
-  	plugins: {
-  		tailwindcss: {},
-  		autoprefixer: {}
-  	}
-  }
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  };
   ```
 
   </br>
@@ -76,10 +82,10 @@ If you don't want to use it, just remove the package and remove config in `tailw
 
   ```js
   module.exports = {
-  	//...
-  	content: ['./index.html', './src/**/*.{tsx,ts}']
-  	//...
-  }
+    //...
+    content: ['./index.html', './src/**/*.{tsx,ts}'],
+    //...
+  };
   ```
 
   </br>
@@ -92,33 +98,40 @@ If you don't want to use it, just remove the package and remove config in `tailw
 
   ```js
   module.exports = {
-  	//...
-  	plugins: [require('daisyui')]
-  }
+    //...
+    plugins: [require('daisyui')],
+  };
   ```
 
 - Add support for TypeScript's path mapping in Vite
   Run `yarn add --dev vite-tsconfig-paths`
 
-- Add ESLint
-yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
-npx eslint --init
+ </br>
 
-✔ How would you like to use ESLint? · style
-✔ What type of modules does your project use? · esm
-✔ Which framework does your project use? · react
-✔ Does your project use TypeScript? · No / Yes · Yes
-✔ Where does your code run? · browser
-✔ How would you like to define a style for your project? · guide
-✔ Which style guide do you want to follow? · standard
-✔ What format do you want your config file to be in? · JavaScript
-✔ Do you want to downgrade? · No / Yes · No
-✔ Would you like to install them now with npm? · No / Yes · No
+- Add **ESLint**
+  Run `yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin`
+  </br>
+- Configure ESLint
+  Run `npx eslint --init`
 
-yarn add --dev eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react
+  ✔ How would you like to use ESLint? · style
+  ✔ What type of modules does your project use? · esm
+  ✔ Which framework does your project use? · react
+  ✔ Does your project use TypeScript? · No / Yes · Yes
+  ✔ Where does your code run? · browser
+  ✔ How would you like to define a style for your project? · guide
+  ✔ Which style guide do you want to follow? · standard
+  ✔ What format do you want your config file to be in? · JavaScript
+  ✔ Do you want to downgrade? · No / Yes · No
+  ✔ Would you like to install them now with npm? · No / Yes · No
+  \_\_
+  Run `yarn add --dev eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react`
+  </br>
+  Adding some rules in `.eslintrc.js`:
 
-rules
-'react/jsx-curly-brace-presence': 'error',
+  ```js
+  rules: {
+    'react/jsx-curly-brace-presence': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/self-closing-comp': [
       'error',
@@ -131,15 +144,50 @@ rules
     'prefer-template': 'error',
     'jsx-quotes': ['error', 'prefer-double'],
     'react/jsx-tag-spacing': 'error',
+  }
+  ```
 
-    .eslintignore
-    node_modules
-    dist    
+  Create .eslintignore file and add the following:
+  `node_modules`
+  `dist`
 
+  </br>
+  Add the following in package.json:
+
+  ```js
+  "scripts": {
+    // ...
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx ."
+  }
+  ```
 
-    yarn lint --fix
+  _To automatically fix all errors, run:_
+  `yarn lint --fix`
 
-VSCode extension
-    https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-    https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
+      </br>
+      **Some useful VSCode extension**
+
+  -- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  -- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+  </br>
+
+  **Add Prettier**
+  Run `yarn add --dev prettier`
+  </br>
+  Create `.prettierrc.js` file and add the following:
+
+  ```js
+  module.exports = {
+    printWidth: 120,
+    singleQuote: true,
+  };
+  ```
+
+  Add the following in package.json:
+
+  ```js
+  "scripts": {
+    // ...
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  }
+  ```

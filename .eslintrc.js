@@ -1,21 +1,21 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: ['plugin:react/recommended', 'standard'],
+  extends: ['plugin:react/recommended', 'standard', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: '12',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
@@ -25,13 +25,13 @@ module.exports = {
       'error',
       {
         component: true,
-        html: true
-      }
+        html: true,
+      },
     ],
     'react/jsx-boolean-value': 'error',
     'prefer-template': 'error',
     'jsx-quotes': ['error', 'prefer-double'],
     'react/jsx-tag-spacing': 'error',
-    'space-before-function-paren': 'never'
-  }
-}
+    'space-before-function-paren': 'off',
+  },
+};
