@@ -55,12 +55,15 @@ Already set up [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/
 ## How was it builded?
 
 - Create **Vite** app for **React** with **TypeScript**
+  </br>
   Run `yarn create vite react-ts-vite-tailwindcss-template --template react-ts`
   </br>
 - Add **TailwindCSS**
+  </br>
   Run `yarn add --dev tailwindcss postcss autoprefixer`
   </br>
 - Configure **TailwindCSS**
+  </br>
   Run `npx tailwindcss init`
   </br>
 - Add the following in `postcss.config.js` file:
@@ -75,8 +78,6 @@ Already set up [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/
   };
   ```
 
-  </br>
-
 - Update `content` in `tailwind.config.js`:
   </br>
 
@@ -88,106 +89,133 @@ Already set up [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/
   };
   ```
 
-  </br>
-
 - Add **daisyUI**
-  Run `yarn add daisyui`
-  </br>
-  Then add `daisyUI` to `tailwind.config.js` file:
   </br>
 
-  ```js
-  module.exports = {
-    //...
-    plugins: [require('daisyui')],
-  };
-  ```
+  - Run `yarn add daisyui`
+    </br>
+  - Then add `daisyUI` to `tailwind.config.js` file:
+    </br>
+
+    ```js
+    module.exports = {
+      //...
+      plugins: [require('daisyui')],
+    };
+    ```
 
 - Add support for TypeScript's path mapping in Vite
-  Run `yarn add --dev vite-tsconfig-paths`
+  </br>
 
- </br>
+  - Run `yarn add --dev vite-tsconfig-paths`
 
 - Add **ESLint**
-  Run `yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin`
   </br>
-- Configure ESLint
-  Run `npx eslint --init`
 
-  ✔ How would you like to use ESLint? · style
-  ✔ What type of modules does your project use? · esm
-  ✔ Which framework does your project use? · react
-  ✔ Does your project use TypeScript? · No / Yes · Yes
-  ✔ Where does your code run? · browser
-  ✔ How would you like to define a style for your project? · guide
-  ✔ Which style guide do you want to follow? · standard
-  ✔ What format do you want your config file to be in? · JavaScript
-  ✔ Do you want to downgrade? · No / Yes · No
-  ✔ Would you like to install them now with npm? · No / Yes · No
-  \_\_
-  Run `yarn add --dev eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react`
-  </br>
-  Adding some rules in `.eslintrc.js`:
+  - Run `yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin`
+    </br>
 
-  ```js
-  rules: {
-    'react/jsx-curly-brace-presence': 'error',
-    'react/react-in-jsx-scope': 'off',
-    'react/self-closing-comp': [
-      'error',
-      {
-        component: true,
-        html: true,
-      },
-    ],
-    'react/jsx-boolean-value': 'error',
-    'prefer-template': 'error',
-    'jsx-quotes': ['error', 'prefer-double'],
-    'react/jsx-tag-spacing': 'error',
-  }
-  ```
+  - Configure ESLint
 
-  Create .eslintignore file and add the following:
-  `node_modules`
-  `dist`
+    - Run `npx eslint --init`
 
-  </br>
-  Add the following in package.json:
+      ✔ How would you like to use ESLint? · style
+      </br>
+      ✔ What type of modules does your project use? · esm
+      </br>
+      ✔ Which framework does your project use? · react
+      </br>
+      ✔ Does your project use TypeScript? · No / Yes · Yes
+      </br>
+      ✔ Where does your code run? · browser
+      </br>
+      ✔ How would you like to define a style for your project?
+      · guide
+      </br>
+      ✔ Which style guide do you want to follow? · standard
+      </br>
+      ✔ What format do you want your config file to be in? · JavaScript
+      </br>
+      ✔ Do you want to downgrade? · No / Yes · No
+      </br>
+      ✔ Would you like to install them now with npm? · No / Yes · No
+      </br>
 
-  ```js
-  "scripts": {
-    // ...
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx ."
-  }
-  ```
+    - Run `yarn add --dev eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react`
+      </br>
 
-  _To automatically fix all errors, run:_
-  `yarn lint --fix`
+    - Adding some rules in `.eslintrc.js`:
+
+      ```js
+      rules: {
+        'react/jsx-curly-brace-presence': 'error',
+        'react/react-in-jsx-scope': 'off',
+        'react/self-closing-comp': [
+          'error',
+          {
+            component: true,
+            html: true,
+          },
+        ],
+        'react/jsx-boolean-value': 'error',
+        'prefer-template': 'error',
+        'jsx-quotes': ['error', 'prefer-double'],
+        'react/jsx-tag-spacing': 'error',
+      }
+      ```
+
+    - Create .eslintignore file and add the following:
+      </br>
+      `node_modules`
+      </br>
+      `dist`
+      </br>
+
+    - Add the following in package.json:
+
+      ```js
+      "scripts": {
+        // ...
+        "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx ."
+      }
+      ```
 
       </br>
+
+      _To automatically fix all errors, run:_
+      </br>
+      `yarn lint --fix`
+
       **Some useful VSCode extension**
+      </br>
 
-  -- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-  -- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+      - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+      - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+
+- Add **Prettier**
   </br>
 
-  **Add Prettier**
-  Run `yarn add --dev prettier`
-  </br>
-  Create `.prettierrc.js` file and add the following:
+  - Run `yarn add --dev prettier`
+    </br>
+  - Create `.prettierrc.js` file and add the following:
 
-  ```js
-  module.exports = {
-    printWidth: 120,
-    singleQuote: true,
-  };
-  ```
+    ```js
+    module.exports = {
+      printWidth: 120,
+      singleQuote: true,
+    };
+    ```
 
-  Add the following in package.json:
+  - Add the following in package.json:
 
-  ```js
-  "scripts": {
-    // ...
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
-  }
-  ```
+        ```js
+        "scripts": {
+          // ...
+          "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+        }
+        ```
+
+    </br>
+
+- **TODO: React Router Dom**
