@@ -209,12 +209,12 @@ Already set up [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/
 
   - Add the following in package.json:
 
-        ```js
-        "scripts": {
-          // ...
-          "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
-        }
-        ```
+    ```js
+    "scripts": {
+      // ...
+      "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    }
+    ```
 
     </br>
 
