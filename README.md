@@ -10,6 +10,7 @@ This starter uses following libraries:
 
 - Vite
 - React
+  - React Router DOM
 - TypeScript
 - TailwindCSS
   - daisyUI
@@ -31,6 +32,10 @@ yarn dev
 ## React
 
 [React](https://es.reactjs.org) is a JavaScript library for building user interfaces.
+
+### React Router DOM
+
+[React Router DOM](https://reactrouter.com) is an npm package that enables you to implement dynamic routing in a web app.
 
 ## TypeScript
 
@@ -218,4 +223,7 @@ Already set up [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/
 
     </br>
 
-- **TODO: React Router Dom**
+- Add **React Router Dom**
+  </br>
+
+  - Run `yarn add react-router-dom@6.3.0`
