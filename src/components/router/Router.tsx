@@ -1,14 +1,17 @@
 import { Suspense } from 'react';
 import { BrowserRouter, Outlet, RouteObject, useRoutes } from 'react-router-dom';
+import { RequireAuth } from '~/components/auth/AuthProvider';
 import HomeScreen from '~/components/screens/Home';
-import Nav from '~/components/shared/Nav';
 import NotFoundScreen from '~/components/screens/NotFound';
 import Loading from '~/components/shared/Loading';
+import Login from '~/components/screens/Login';
+import Protected from '~/components/screens/Protected';
+import NavBar from '~/components/shared/Nav/NavBar';
 
 function Layout() {
   return (
     <>
-      <Nav />
+      <NavBar />
       <Outlet />
     </>
   );
@@ -23,6 +26,18 @@ function Routes() {
         {
           index: true,
           element: <HomeScreen />,
+        },
+        {
+          path: '/protected',
+          element: (
+            <RequireAuth>
+              <Protected />
+            </RequireAuth>
+          ),
+        },
+        {
+          path: '/login',
+          element: <Login />,
         },
         {
           path: '*',
