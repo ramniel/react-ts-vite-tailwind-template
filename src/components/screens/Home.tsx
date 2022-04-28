@@ -4,10 +4,7 @@ export default function HomeScreen() {
   return (
     <>
       <Head title="Home" />
-      <div
-        className="hero min-h-screen"
-        style={{ backgroundImage: 'url(https://api.lorem.space/image/fashion?w=1000&h=800)' }}
-      >
+      <div className="hero bg-sm md:bg-md flex-grow">
         <div className="hero-overlay bg-opacity-60" />
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">

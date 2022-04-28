@@ -4,7 +4,7 @@ export default function Protected() {
   return (
     <>
       <Head title="Home" />
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero flex-grow">
         <div className="hero-content flex-col lg:flex-row">
           <img src="https://api.lorem.space/image/movie?w=260&h=400" className="max-w-sm rounded-lg shadow-2xl" />
           <div>
