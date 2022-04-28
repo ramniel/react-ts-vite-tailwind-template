@@ -1,5 +1,5 @@
 import { FormEvent } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Location, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '~/components/auth/AuthProvider';
 import Head from '~/components/shared/Head';
 
@@ -8,7 +8,10 @@ export default function Login() {
   const location = useLocation();
   const auth = useAuth();
 
-  const from = location.state?.from?.pathname || '/';
+  type LocationState = {
+    from?: Location
+  }
+  const from = (location.state as LocationState)?.from?.pathname || '/';
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
